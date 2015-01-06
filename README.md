@@ -1,6 +1,11 @@
 twiddler
 --------
 
+Working Features
+* nothing
+* outline of a UI
+
 Potential features
-- systemd service to enable/disable firewall rules
-- 
+* basic http request capturing, introspecting
+* basic http request creation, sending, etc
+* systemd service to enable/disable firewall rules
