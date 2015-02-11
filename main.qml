@@ -38,7 +38,7 @@ ApplicationWindow {
         }
         Switch {
             id: enabledSwitch
-            checked: true
+            checked: state.CaptureEnabled
             anchors.left: switchLabel.right
             anchors.leftMargin: 8
             anchors.verticalCenter: parent.verticalCenter

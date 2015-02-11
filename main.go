@@ -15,20 +15,21 @@ type RequestResponsePair struct {
 }
 
 type State struct {
-	CaptureEnabled false
+	CaptureEnabled bool
 	ReqResps []RequestResponsePair
 	Window   qml.Object
 }
 
-var state State
-
 func main() {
+	var state State
+
 	var outChan chan RequestResponsePair
 	outChan = make(chan RequestResponsePair, 10)
 	go setupProxy(outChan)
 	go func() {
 		for {
 			blah := <-outChan
+			state.ReqResps = append(state.ReqResps, blah)
 
 			log.Println("Request: ", blah.Request)
 			log.Println("Response: ", blah.Response)
@@ -61,4 +62,9 @@ func run() error {
 	window.Show()
 	window.Wait()
 	return nil
+}
+
+func (s *State) SendRequest() {
+	// should it take args
+	// or get the args from the 
 }
